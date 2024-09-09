@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Decêndio</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #bb86fc;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+        }
+
+        input[type="submit"] {
+            background-color: #bb86fc;
+            color: #121212;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3700b3;
+            color: #e0e0e0;
+        }
+
+        .date-range {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .date-range input[type="date"] {
+            width: 48%;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+        }
+        .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn {
+        text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="paginicial.html" class="btn">Voltar para Página Inicial</a>
+        </div>
+
+    <h1>Controle Decêndio</h1>
+    <form action="salvar_decendio.php" method="POST">
+        <label for="dataInicio">Período da Conferência:</label>
+        <div class="date-range">
+            <input type="date" id="dataInicio" name="dataInicio" required>
+            <input type="date" id="dataFim" name="dataFim" required>
+        </div>
+
+        <label for="unidade">Unidade:</label>
+        <select id="unidade" name="unidade" required>
+            <option value="P9">P9</option>
+            <option value="P6">P6</option>
+            <option value="P4">P4</option>
+            <option value="P1">P1</option>
+            <option value="P.A.">P.A.</option>
+            <option value="Pedreira">Pedreira</option>
+            <option value="Guararema">Guararema</option>
+            <option value="A.N.">A.N.</option>
+            <option value="Ambiental">Ambiental</option>
+        </select>
+
+        <label for="valorCubo">Valor do Cubo:</label>
+        <input type="number" id="valorCubo" name="valorCubo" step="0.01" required>
+
+        <label for="movimentoTotal">Movimento Total:</label>
+        <input type="number" id="movimentoTotal" name="movimentoTotal" step="0.01" required>
+
+        <label for="movimentaValor">Movimenta Valor:</label>
+        <input type="number" id="movimentaValor" name="movimentaValor" step="0.01" required>
+
+        <label for="conferente">Conferente:</label>
+        <select id="conferente" name="conferente" required>
+            <option value="Rafael">Rafael</option>
+            <option value="Gustavo">Gustavo</option>
+            <option value="Mateus">Mateus</option>
+            <option value="Jonathan">Jonathan</option>
+            <option value="Karen">Karen</option>
+            <option value="Matheus">Matheus</option>
+        </select>
+
+        <label for="problema">Problema:</label>
+        <select id="problema" name="problema" required>
+            <option value="---">---</option>
+            <option value="CHAVE DE ACESSO">CHAVE DE ACESSO</option>
+            <option value="CONTIGÊNCIA">CONTIGÊNCIA</option>
+            <option value="DIVERG APP VENDAS">DIVERG APP VENDAS</option>
+            <option value="FRETE INCLUSO">FRETE INCLUSO</option>
+            <option value="MOVVALOR">MOVVALOR</option>
+            <option value="NOME CLIENTE">NOME CLIENTE</option>
+            <option value="NOTA AUTORIZADA">NOTA AUTORIZADA</option>
+            <option value="NOTA CANCELADA">NOTA CANCELADA</option>
+            <option value="NOTA DENEGADA">NOTA DENEGADA</option>
+            <option value="NOTA EM CONTIGÊNCIA">NOTA EM CONTIGÊNCIA</option>
+            <option value="NOTA INUTILIZADA">NOTA INUTILIZADA</option>
+            <option value="STATUS INCORRETO">STATUS INCORRETO</option>
+            <option value="TIPO DE VENDA">TIPO DE VENDA</option>
+            <option value="TPAGTO">TPAGTO</option>
+        </select>
+
+        <label for="observacoes">Observações:</label>
+        <textarea id="observacoes" name="observacoes" rows="4" maxlength="2000"></textarea>
+
+        <input type="submit" value="Salvar">
+    </form>
+
+</body>
+</html>

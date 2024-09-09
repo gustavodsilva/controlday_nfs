@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conferência de Notas Fiscais - Diário</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #bb86fc;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+        }
+
+        input[type="submit"] {
+            background-color: #bb86fc;
+            color: #121212;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3700b3;
+            color: #e0e0e0;
+        }
+
+        .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn {
+        text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="paginicial.html" class="btn">Voltar para Página Inicial</a>
+        </div>
+
+    <h1>Formulário de Conferência Diária</h1>
+
+    <form id="dailyForm">
+        <label for="dataConferencia">Data da Conferência:</label>
+        <input type="date" id="dataConferencia" name="dataConferencia" required>
+
+        <label for="diaSemana">Dia da Semana:</label>
+        <input type="text" id="diaSemana" name="diaSemana" readonly>
+
+        <label for="unidade">Unidade:</label>
+        <select id="unidade" name="unidade" required>
+            <option value="P9">P9</option>
+            <option value="P6">P6</option>
+            <option value="P4">P4</option>
+            <option value="P1">P1</option>
+            <option value="P.A.">P.A.</option>
+            <option value="Pedreira">Pedreira</option>
+            <option value="Guararema">Guararema</option>
+            <option value="A.N.">A.N.</option>
+            <option value="Ambiental">Ambiental</option>
+        </select>
+
+        <label for="valorCubo">Valor do Cubo:</label>
+        <input type="text" id="valorCubo" name="valorCubo" required>
+
+        <label for="movimentoTotal">Movimento Total:</label>
+        <input type="text" id="movimentoTotal" name="movimentoTotal" required>
+
+        <label for="movimentaValor">Movimenta Valor:</label>
+        <input type="text" id="movimentaValor" name="movimentaValor" required>
+
+        <label for="conferente">Conferente:</label>
+        <select id="conferente" name="conferente" required>
+            <option value="Rafael">Rafael</option>
+            <option value="Gustavo">Gustavo</option>
+            <option value="Mateus">Mateus</option>
+            <option value="Jonathan">Jonathan</option>
+            <option value="Karen">Karen</option>
+            <option value="Matheus">Matheus</option>
+        </select>
+
+        <label for="problema">Problema:</label>
+        <select id="problema" name="problema">
+            <option value="---">---</option>
+            <option value="CHAVE DE ACESSO">CHAVE DE ACESSO</option>
+            <option value="CONTIGENCIA">CONTIGENCIA</option>
+            <option value="DIVERG APP VENDAS">DIVERG APP VENDAS</option>
+            <option value="FRETE INCLUSO">FRETE INCLUSO</option>
+            <option value="MOVVALOR">MOVVALOR</option>
+            <option value="NOME CLIENTE">NOME CLIENTE</option>
+            <option value="NOTA AUTORIZADA">NOTA AUTORIZADA</option>
+            <option value="NOTA CANCELADA">NOTA CANCELADA</option>
+            <option value="NOTA DENEGADA">NOTA DENEGADA</option>
+            <option value="NOTA EM CONTIGÊNCIA">NOTA EM CONTIGÊNCIA</option>
+            <option value="NOTA INUTILIZADA">NOTA INUTILIZADA</option>
+            <option value="STATUS INCORRETO">STATUS INCORRETO</option>
+            <option value="TIPO DE VENDA">TIPO DE VENDA</option>
+            <option value="TPAGTO">TPAGTO</option>
+        </select>
+
+        <label for="observacoes">Observações:</label>
+        <textarea id="observacoes" name="observacoes" maxlength="2000"></textarea>
+
+        <input type="submit" value="Salvar">
+    </form>
+
+    <script>
+        document.getElementById('dataConferencia').addEventListener('change', function() {
+            const date = new Date(this.value);
+            const options = { weekday: 'long' };
+            const dayName = date.toLocaleDateString('pt-BR', options);
+            document.getElementById('diaSemana').value = dayName.charAt(0).toUpperCase() + dayName.slice(1);
+        });
+    </script>
+
+</body>
+</html>
